@@ -20,16 +20,18 @@ La méthode a été rodée sur [mon bureau](../projets/bureau/) en octobre 2026.
 - Une version est une clé de position (`A`, `B`, …) dans chaque entrée de `ITEMS`. Elle garde sa propre sélection et son propre total.
 - Quand une version est retenue, archiver les autres plutôt que les supprimer (`projets/<projet>/archives/`).
 - Rester dans ce que le planificateur IKEA sait afficher. La gamme cuisine (METOD, MAXIMERA, VOXTORP, KARLBY) et le sur-mesure n'y figurent pas : sans eux, pas de design partageable ni de panier en un clic.
+- Contrôler les références avant d'aller plus loin : `npm run refs -- projets/<projet>/maquette.html <version>` signale une teinte différente de celle visée, un article vendu par deux, une charnière ou un câble oublié, un article absent de la vente en ligne.
 - Chaque article acheté porte `refs:[{itemNo, q}]` avec tous ses composants : structure, façades, pieds, boutons, charnières, câbles. `q` est un nombre de paquets pour toute l'entrée ; la quincaillerie est souvent vendue par deux, et les charnières BESTÅ comme les câbles d'alimentation sont vendus à part.
 
 ## 4. Visualiser dans le planificateur IKEA
 
 ```bash
-npm run planificateur -- projets/<projet>/maquette.html <version> out/<version>
+npm run ikea -- projets/<projet>/maquette.html <version> --sortie out/<version>
 ```
 
-- Le script copie la pièce déjà construite (ou la construit, environ une minute), pose les meubles par référence, compare chaque boîte rendue à la maquette (tolérance 2 cm), capture la vue de dessus et le plan 2D, puis partage le design.
-- Relire les captures : sens de la pièce (pas en miroir), hauteur sous plafond, position des ouvertures.
+- La commande contrôle les références, copie la pièce déjà construite (ou la construit, environ une minute), pose les meubles par référence, vérifie le design à 2 cm près, capture la vue de dessus, puis partage le design et prépare le panier. Le bilan est dans `resume.md`.
+- Relire la vue de dessus et le plan de vérification (`verif/plan-verif.svg`) : sens de la pièce, hauteur sous plafond, position des ouvertures. La vérification les contrôle déjà, l'œil reste le dernier filet.
+- Un lien de partage ne suit pas la maquette : après chaque modification, relancer la commande.
 - Limites du planificateur : certains coloris n'existent pas en 3D et s'affichent en blanc, les objets personnels sont remplacés par un meuble IKEA de même taille, le sens d'ouverture des portes n'est pas réglable.
 
 ## 5. Commander

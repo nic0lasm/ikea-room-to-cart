@@ -42,6 +42,16 @@ Une entrée par article ou ensemble acheté ensemble :
 
 Un article posé avec `y > 0` est posé sur le meuble en dessous s'il y en a un, sinon fixé au mur.
 
+Trois champs facultatifs règlent le passage dans le planificateur :
+
+- `sub3d` impose le modèle 3D à poser (numéro d'article), quand l'équivalent choisi automatiquement ne convient pas ; le panier garde `refs`.
+- `q3d` donne les termes de recherche du substitut d'un objet déjà possédé (`st:'own'`).
+- `kind:'none'`, ou une emprise de moins de 2 cm, réserve l'entrée au panier : éclairage, rallonges, piles.
+
+## Le projet : `const PROJET={…};`
+
+Facultatif. `teinte` (par exemple `'chene'`), `quincaillerie` (`'noir'`) et `exclure` (gammes à refuser, par exemple `['METOD']`) fixent la cible du contrôle des références ; les options de la ligne de commande priment.
+
 ## Les versions
 
 Les clés de version apparaissent à trois endroits de la maquette, à garder synchronisés : les boutons `<button id="l<clé>">`, la liste `['cur','A','V']` (deux fois) et le dictionnaire des titres `{cur:'…',A:'…',V:'…'}`. Dans `outils/extraire-donnees.js`, ajouter le libellé de toute nouvelle clé dans `LABELS`.

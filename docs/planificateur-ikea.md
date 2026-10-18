@@ -4,17 +4,18 @@ Notes techniques sur le planificateur home-design d'ikea.com/fr, relevées en oc
 
 L'idée directrice : ne rien saisir à la souris. Les murs et les ouvertures passent par l'API interne du room-builder, les meubles, la sauvegarde et le partage par l'API REST du planificateur.
 
-## Vue d'ensemble de `maquette-vers-ikea.js`
+## La chaîne `ikea.js`
 
-1. Lit la pièce et les meubles de la version dans la maquette.
-2. Cherche dans `outils/pieces.json` une pièce déjà construite pour cette géométrie (empreinte de `H`, `P`, `DOOR`, `WIN`, `OPEN`). Sinon, lance `piece/build-room.js` (environ une minute).
-3. Obtient un jeton invité et copie la scène de la pièce pour cet invité.
-4. Associe chaque référence à un meuble du catalogue 3D. Pour un article absent du catalogue 3D, cherche l'équivalent le plus proche (même nom, coloris, dimensions) ; un objet déjà possédé est remplacé par un meuble IKEA de même taille, hors panier.
-5. Calcule la position et l'orientation de chaque meuble (dos au mur le plus proche, sauf `face` imposée ; posé sur le meuble du dessous ou fixé au mur quand `y > 0`), crée le design et le partage.
-6. Ouvre le design dans Chromium, relit les boîtes englobantes réellement rendues et les compare à la maquette. Un écart au-delà de 2 cm déclenche une seconde passe (l'éditeur fait parfois pivoter un objet posé sur un autre).
-7. Capture la vue de dessus et un plan 2D attendu / obtenu, puis produit le panier avec `liste-achat.js`, toujours avec les références d'origine.
+Une commande enchaîne tout, pour n'importe quelle pièce décrite dans une maquette :
 
-Sorties : `rapport.txt`, `rapport.json`, `vue-dessus.png`, `plan-2d.png`, `panier.html`, `panier.json`.
+1. **Références et teintes** (`lint-refs.js`, lancé en parallèle). Pour chaque référence : coloris réel, prix du jour, conditionnement (« vendu par 2 »), vente en ligne, présence dans le catalogue 3D. Les compléments indiqués sur les fiches IKEA (charnières, glissières, pieds, rails, transformateur et câble, piles) sont vérifiés, et une teinte cible (`PROJET.teinte` dans la maquette, ou `--teinte`) signale les variantes d'un autre coloris.
+2. **Pièce.** `outils/pieces.json` garde la scène IKEA déjà construite pour chaque géométrie (empreinte de `H`, `P`, `DOOR`, `WIN`, `OPEN`). Une pièce nouvelle passe par `piece/build-room.js`, environ une minute.
+3. **Meubles.** Un jeton invité, une copie de la scène, puis la pose par l'API REST. Chaque référence est associée à son modèle 3D ; un article absent du catalogue 3D prend l'équivalent le plus proche (même teinte d'abord), un objet déjà possédé un meuble IKEA de même taille, hors panier. Orientation : dos au mur le plus proche, sauf `face` imposée ; un meuble avec `y > 0` est posé sur celui du dessous ou fixé au mur.
+4. **Vérification sans navigateur** (`lib/verif.js`, aussi disponible seul avec `verifier.js`). Le JSON public du design est relu et comparé à la maquette : sens de la pièce (pas de miroir), murs à 1 cm, hauteur sous plafond, ouvertures, puis chaque meuble à 2 cm (position, emprise, rotation), meubles manquants ou en trop, référence posée contre référence commandée. Le résultat est aussi dessiné en SVG, maquette en pointillés et écarts en rouge.
+5. **Vérification du rendu** (mode normal). Le design s'ouvre dans Chromium, les boîtes réellement rendues par l'éditeur sont comparées à la maquette, et les modèles que l'éditeur fait pivoter sont corrigés sur le même lien. Les corrections apprises sont gardées dans `outils/modeles-3d.json`, ce qui permet ensuite le mode `--rapide` (sans navigateur, quelques secondes).
+6. **Panier** (`liste-achat.js`) et rapport `resume.md`, avec le lien du design, le lien panier, le total, les substitutions 3D et les écarts.
+
+Code de sortie : 0 si tout est conforme, 2 en cas d'écart ou d'erreur de références, 1 en cas d'erreur d'exécution. Sur le bureau, le mode normal prend une quarantaine de secondes.
 
 ## API REST « sugarcube »
 
@@ -46,11 +47,12 @@ Erreurs commises lors des premiers essais à la souris : pièce saisie en miroir
 
 - Sans GPU, Chromium rend en SwiftShader et le planificateur affiche « appareil non supporté ». `lib/gpu-spoof.js`, injecté avant le chargement, présente un GPU courant et retire `failIfMajorPerformanceCaveat`.
 - `lib/hooks.js` expose le visualiseur et la scène three.js, ce qui permet de relire les boîtes englobantes (`lib/bbox-page.js`).
-- Un seul Chromium à la fois sur une petite machine : à plusieurs en parallèle, les captures de contrôle expirent.
+- `lib/quality-low.js` coupe ombres et anticrénelage, et `lib/block-list.js` bloque les requêtes inutiles au planificateur (consentement, mesure d'audience, polices, médias) : l'éditeur passe d'environ 2 à 15 images par seconde.
+- `lib/chrome.js` lance Chromium sur le premier port CDP libre (9240 à 9249) et l'arrête en fin de traitement. Un verrou n'en laisse tourner qu'un à la fois : à plusieurs en parallèle sur une petite machine, les captures de contrôle expirent.
 
 ## Panier ikea.fr
 
 - `https://www.ikea.com/fr/fr/shoppingcart/?items=<référence à 8 chiffres>:<quantité>,…` : la page panier lit ce paramètre elle-même, sans compte. Testé avec 36 références et 75 articles, total identique au calcul.
 - Le lien ajoute au panier existant ; `&replaceItems=true` le vide d'abord.
 - Une seule référence mal formée (pas 8 chiffres, quantité hors de 1 à 999) et tout le lien est ignoré.
-- `liste-achat.js` relit les prix sur ikea.fr et les met en cache (`outils/cache-prix.json`, non versionné). `--offline` reprend les prix du dernier relevé en cache, sans réseau.
+- `liste-achat.js` relit les prix sur ikea.fr et les garde en cache hors du dépôt (`IKEA_CACHE_DIR`, par défaut dans le dossier temporaire). `--offline` reprend les prix du dernier relevé, sans réseau.
