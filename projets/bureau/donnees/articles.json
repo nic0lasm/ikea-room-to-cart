@@ -1,0 +1,679 @@
+[
+ {
+  "id": "desk",
+  "nom": "Bureau existant",
+  "description": "160 × 80 cm, conservé",
+  "prixUnitaire": 0,
+  "quantite": 1,
+  "statutPrix": "déjà possédé",
+  "dimensions": {
+   "w": 80,
+   "d": 160,
+   "h": 74
+  },
+  "type": "desk",
+  "refs": [],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "cur": {
+    "x": 0,
+    "z": 182
+   },
+   "A": {
+    "x": 0,
+    "z": 5
+   },
+   "V": {
+    "x": 0,
+    "z": 5
+   }
+  }
+ },
+ {
+  "id": "chair",
+  "nom": "Chaise existante",
+  "description": "Conservée",
+  "prixUnitaire": 0,
+  "quantite": 1,
+  "statutPrix": "déjà possédé",
+  "dimensions": {
+   "w": 62,
+   "d": 60,
+   "h": 120
+  },
+  "type": "chair",
+  "refs": [],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "cur": {
+    "x": 86,
+    "z": 232
+   },
+   "A": {
+    "x": 86,
+    "z": 55
+   },
+   "V": {
+    "x": 86,
+    "z": 55
+   }
+  }
+ },
+ {
+  "id": "bas",
+  "nom": "BESTÅ bas à tiroirs",
+  "description": "2 structures BESTÅ 60 × 40 × 64 effet chêne blanchi sur pieds STUBBARP brun noir (74 cm, la hauteur du bureau), 4 tiroirs à fermeture silencieuse, façades LAPPVIKEN effet chêne blanchi, boutons BAGGANÄS noirs. Par élément : 30 + 35 (tiroirs) + 20 (glissières) + 15 (façades) + 5 (boutons) + 10 (pieds) €",
+  "prixUnitaire": 115,
+  "quantite": 2,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 120,
+   "h": 74
+  },
+  "type": "bestaBas",
+  "refs": [
+   {
+    "itemNo": "102.473.79",
+    "q": 2
+   },
+   {
+    "itemNo": "503.515.14",
+    "q": 2
+   },
+   {
+    "itemNo": "603.515.18",
+    "q": 2
+   },
+   {
+    "itemNo": "403.487.15",
+    "q": 4
+   },
+   {
+    "itemNo": "302.916.96",
+    "q": 2
+   },
+   {
+    "itemNo": "902.916.84",
+    "q": 2
+   },
+   {
+    "itemNo": "903.384.17",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 4
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 0,
+    "z": 168
+   },
+   "V": {
+    "x": 0,
+    "z": 168
+   }
+  }
+ },
+ {
+  "id": "lag",
+  "nom": "LAGKAPTEN plateau 120 × 60",
+  "description": "Teinté blanc motif chêne, posé sur les BESTÅ : 60 cm de profondeur pour l’imprimante (39 cm + 15 cm d’air derrière), dessus à 76,5 cm",
+  "prixUnitaire": 39,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 60,
+   "d": 120,
+   "h": 2.5
+  },
+  "type": "worktopS",
+  "refs": [
+   {
+    "itemNo": "504.606.69",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 0,
+    "z": 168
+   },
+   "V": {
+    "x": 0,
+    "z": 168
+   }
+  }
+ },
+ {
+  "id": "billyo",
+  "nom": "BILLY 80 + 40",
+  "description": "Bibliothèques 80 × 28 × 106 et 40 × 28 × 106 motif chêne posées sur le plateau : les cases du haut",
+  "prixUnitaire": 109.98,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 120,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "904.773.85",
+    "q": 1
+   },
+   {
+    "itemNo": "204.773.79",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 0,
+    "z": 168,
+    "y": 76.5
+   },
+   "V": {
+    "x": 0,
+    "z": 168,
+    "y": 76.5
+   }
+  }
+ },
+ {
+  "id": "eket",
+  "nom": "EKET",
+  "description": "Cubes muraux 35 × 35 × 35 effet chêne blanchi avec rail, au-dessus du bureau (×4)",
+  "prixUnitaire": 29.99,
+  "quantite": 4,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 35,
+   "d": 140,
+   "h": 35
+  },
+  "type": "eket",
+  "refs": [
+   {
+    "itemNo": "804.288.52",
+    "q": 4
+   },
+   {
+    "itemNo": "003.400.47",
+    "q": 4
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 0,
+    "z": 12,
+    "y": 150
+   },
+   "V": {
+    "x": 0,
+    "z": 12,
+    "y": 150
+   }
+  }
+ },
+ {
+  "id": "p1s",
+  "nom": "Imprimante 3D Bambu Lab P1S + AMS",
+  "description": "Déjà possédée : 38,9 × 38,9 × 45,8 + AMS 2 Pro posé dessus = 68 cm, environ 85 cm couvercle ouvert. 15 cm d’air à l’arrière",
+  "prixUnitaire": 0,
+  "quantite": 1,
+  "statutPrix": "déjà possédé",
+  "dimensions": {
+   "w": 39,
+   "d": 39,
+   "h": 46
+  },
+  "type": "printer",
+  "refs": [],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "V": {
+    "x": 15,
+    "z": 296.5,
+    "y": 78.3
+   }
+  }
+ },
+ {
+  "id": "pax",
+  "nom": "PAX niche imprimante",
+  "description": "Caisson PAX 50 × 58 × 201 effet chêne blanchi (80 €), même teinte que les BESTÅ, posé contre la porte-fenêtre dans l’espace laissé libre. 3 tiroirs KOMPLEMENT en bas (60 €) pour les bobines de réserve ; tablette KOMPLEMENT à 76,5 cm, à la hauteur du plateau, où se pose l’imprimante ; niche ouverte de 98 cm (85 cm nécessaires couvercle AMS ouvert, 46 cm de large pour 39) ; 2e tablette (20 € les deux) et compartiment du haut pour 6 bobines en vitrine ; baguette LED ÖVERSIDAN 46 cm + driver TRÅDFRI (38 €). Câble FÖRNIMMA non chiffré",
+  "prixUnitaire": 197.99,
+  "quantite": 1,
+  "statutPrix": "estimé",
+  "dimensions": {
+   "w": 58,
+   "d": 50,
+   "h": 201
+  },
+  "type": "pax",
+  "refs": [
+   {
+    "itemNo": "504.582.18",
+    "q": 1
+   },
+   {
+    "itemNo": "702.779.81",
+    "q": 2
+   },
+   {
+    "itemNo": "502.463.06",
+    "q": 3
+   },
+   {
+    "itemNo": "005.892.69",
+    "q": 1
+   },
+   {
+    "itemNo": "603.426.56",
+    "q": 1
+   },
+   {
+    "itemNo": "504.468.81",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "V": {
+    "x": 0,
+    "z": 291
+   }
+  }
+ },
+ {
+  "id": "lamp",
+  "nom": "FORSÅ",
+  "description": "Lampe de bureau noire",
+  "prixUnitaire": 24.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 20,
+   "d": 20,
+   "h": 50
+  },
+  "type": "lamp",
+  "refs": [
+   {
+    "itemNo": "001.467.76",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 52,
+    "z": 14,
+    "y": 74
+   },
+   "V": {
+    "x": 52,
+    "z": 14,
+    "y": 74
+   }
+  }
+ },
+ {
+  "id": "chevet",
+  "nom": "BESTÅ chevet côté porte",
+  "description": "Structure BESTÅ 60 × 20 × 64 effet chêne blanchi + porte LAPPVIKEN + charnières (non chiffrées) + 4 pieds STUBBARP brun noir + bouton noir : 76 cm de haut, juste au-dessus de l’accoudoir",
+  "prixUnitaire": 55,
+  "quantite": 1,
+  "statutPrix": "estimé",
+  "dimensions": {
+   "w": 20,
+   "d": 60,
+   "h": 76
+  },
+  "type": "besta",
+  "refs": [
+   {
+    "itemNo": "802.474.13",
+    "q": 1
+   },
+   {
+    "itemNo": "402.916.91",
+    "q": 1
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 1
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   },
+   {
+    "itemNo": "903.384.17",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 309.5,
+    "z": 125
+   },
+   "V": {
+    "x": 309.5,
+    "z": 125
+   }
+  },
+  "face": "-x"
+ },
+ {
+  "id": "colonne",
+  "nom": "BESTÅ colonne côté fenêtre",
+  "description": "2 structures BESTÅ 60 × 20 × 64 + 2 portes LAPPVIKEN effet chêne blanchi, charnières (non chiffrées), 4 pieds STUBBARP, boutons noirs : 140 cm de haut entre le canapé et la porte-fenêtre",
+  "prixUnitaire": 95,
+  "quantite": 1,
+  "statutPrix": "estimé",
+  "dimensions": {
+   "w": 60,
+   "d": 20,
+   "h": 140
+  },
+  "type": "besta",
+  "refs": [
+   {
+    "itemNo": "802.474.13",
+    "q": 2
+   },
+   {
+    "itemNo": "402.916.91",
+    "q": 2
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   },
+   {
+    "itemNo": "903.384.17",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 258,
+    "z": 323
+   },
+   "V": {
+    "x": 258,
+    "z": 323
+   }
+  },
+  "face": "-z"
+ },
+ {
+  "id": "fond",
+  "nom": "BESTÅ muraux au fond du renfoncement",
+  "description": "2 structures BESTÅ 60 × 20 × 38 + portes LAPPVIKEN effet chêne blanchi sur rails de suspension, fixées à 1,35 m au-dessus du dossier, MITTLED 60 cm + driver dessous pour lire. Charnières et câble FÖRNIMMA non chiffrés",
+  "prixUnitaire": 119.99,
+  "quantite": 1,
+  "statutPrix": "estimé",
+  "dimensions": {
+   "w": 20,
+   "d": 120,
+   "h": 38
+  },
+  "type": "besta",
+  "refs": [
+   {
+    "itemNo": "802.474.08",
+    "q": 2
+   },
+   {
+    "itemNo": "902.916.84",
+    "q": 2
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 2
+   },
+   {
+    "itemNo": "704.883.18",
+    "q": 2
+   },
+   {
+    "itemNo": "903.384.17",
+    "q": 1
+   },
+   {
+    "itemNo": "605.285.84",
+    "q": 1
+   },
+   {
+    "itemNo": "603.426.56",
+    "q": 1
+   },
+   {
+    "itemNo": "504.468.81",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "A": {
+    "x": 365.5,
+    "z": 194,
+    "y": 135
+   },
+   "V": {
+    "x": 365.5,
+    "z": 194,
+    "y": 135
+   }
+  },
+  "face": "-x"
+ },
+ {
+  "id": "fridhult",
+  "nom": "FRIDHULT",
+  "description": "Canapé convertible 126 × 76, couchage 119 × 202",
+  "prixUnitaire": 249,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 76,
+   "d": 126,
+   "h": 73
+  },
+  "type": "sofa",
+  "refs": [
+   {
+    "itemNo": "703.517.25",
+    "q": 1
+   }
+  ],
+  "groupe": "sofa",
+  "cocheParDefaut": true,
+  "positions": {
+   "cur": {
+    "x": 309.5,
+    "z": 191
+   },
+   "A": {
+    "x": 309.5,
+    "z": 191
+   },
+   "V": {
+    "x": 309.5,
+    "z": 191
+   }
+  }
+ },
+ {
+  "id": "malm",
+  "nom": "MALM 120 × 200",
+  "description": "Vrai lit, cadre haut plaqué chêne blanchi, 135 cm de large (+ sommier et matelas). Prend 2,09 m en permanence",
+  "prixUnitaire": 350,
+  "quantite": 1,
+  "statutPrix": "estimé",
+  "dimensions": {
+   "w": 209,
+   "d": 135,
+   "h": 100
+  },
+  "type": "bed",
+  "refs": [],
+  "groupe": "sofa",
+  "cocheParDefaut": false,
+  "positions": {
+   "A": {
+    "x": 176.5,
+    "z": 186.5
+   },
+   "V": {
+    "x": 176.5,
+    "z": 186.5
+   }
+  }
+ },
+ {
+  "id": "lycksele",
+  "nom": "LYCKSELE MURBO",
+  "description": "Chauffeuse convertible 80 × 100, couchage 80 × 188 : une personne, libère le reste du renfoncement",
+  "prixUnitaire": 299,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 100,
+   "d": 80,
+   "h": 87
+  },
+  "type": "sofa",
+  "refs": [],
+  "groupe": "sofa",
+  "cocheParDefaut": false,
+  "positions": {
+   "A": {
+    "x": 285.5,
+    "z": 214
+   },
+   "V": {
+    "x": 285.5,
+    "z": 214
+   }
+  }
+ },
+ {
+  "id": "glostad",
+  "nom": "GLOSTAD 2 places",
+  "description": "Petit canapé 121 × 78 × 68, non convertible : le plus compact pour s’asseoir",
+  "prixUnitaire": 119,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 78,
+   "d": 121,
+   "h": 68
+  },
+  "type": "sofa",
+  "refs": [],
+  "groupe": "sofa",
+  "cocheParDefaut": false,
+  "positions": {
+   "A": {
+    "x": 307.5,
+    "z": 193.5
+   },
+   "V": {
+    "x": 307.5,
+    "z": 193.5
+   }
+  }
+ },
+ {
+  "id": "hammarn",
+  "nom": "HAMMARN",
+  "description": "Convertible 128 × 85, couchage 120 × 190, plus sommaire",
+  "prixUnitaire": 99.95,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 85,
+   "d": 128,
+   "h": 78
+  },
+  "type": "sofa",
+  "refs": [
+   {
+    "itemNo": "903.543.27",
+    "q": 1
+   }
+  ],
+  "groupe": "sofa",
+  "cocheParDefaut": false,
+  "positions": {
+   "cur": {
+    "x": 300.5,
+    "z": 190
+   },
+   "A": {
+    "x": 300.5,
+    "z": 190
+   },
+   "V": {
+    "x": 300.5,
+    "z": 190
+   }
+  }
+ },
+ {
+  "id": "sally",
+  "nom": "SALLY chauffeuse 2 places (Nature & Découvertes)",
+  "description": "Hors IKEA. 135 × 90 × 66, se déplie en mousse vers la pièce : couchage 133 × 244 (dossier compris). Le couchage le plus large qui tient dans 138 cm, mais pas de vrai matelas ni de sommier",
+  "prixUnitaire": 359.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 90,
+   "d": 135,
+   "h": 66
+  },
+  "type": "sofa",
+  "refs": [],
+  "groupe": "sofa",
+  "cocheParDefaut": false,
+  "positions": {
+   "A": {
+    "x": 295.5,
+    "z": 186.5
+   },
+   "V": {
+    "x": 295.5,
+    "z": 186.5
+   }
+  }
+ }
+]

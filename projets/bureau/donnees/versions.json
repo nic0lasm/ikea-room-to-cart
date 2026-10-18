@@ -1,0 +1,94 @@
+[
+ {
+  "version": "cur",
+  "titre": "État actuel",
+  "articles": [
+   "desk",
+   "chair",
+   "fridhult",
+   "hammarn"
+  ],
+  "cochesParDefaut": [
+   "desk",
+   "chair",
+   "fridhult"
+  ],
+  "totalMaquette": 249
+ },
+ {
+  "version": "A",
+  "titre": "Bureau côté porte",
+  "articles": [
+   "desk",
+   "chair",
+   "bas",
+   "lag",
+   "billyo",
+   "eket",
+   "lamp",
+   "chevet",
+   "colonne",
+   "fond",
+   "fridhult",
+   "malm",
+   "lycksele",
+   "glostad",
+   "hammarn",
+   "sally"
+  ],
+  "cochesParDefaut": [
+   "desk",
+   "chair",
+   "bas",
+   "lag",
+   "billyo",
+   "eket",
+   "lamp",
+   "chevet",
+   "colonne",
+   "fond",
+   "fridhult"
+  ],
+  "totalMaquette": 1042.92
+ },
+ {
+  "version": "V",
+  "titre": "Vdef, version finale",
+  "articles": [
+   "desk",
+   "chair",
+   "bas",
+   "lag",
+   "billyo",
+   "eket",
+   "p1s",
+   "pax",
+   "lamp",
+   "chevet",
+   "colonne",
+   "fond",
+   "fridhult",
+   "malm",
+   "lycksele",
+   "glostad",
+   "hammarn",
+   "sally"
+  ],
+  "cochesParDefaut": [
+   "desk",
+   "chair",
+   "bas",
+   "lag",
+   "billyo",
+   "eket",
+   "p1s",
+   "pax",
+   "lamp",
+   "chevet",
+   "colonne",
+   "fond",
+   "fridhult"
+  ],
+  "totalMaquette": 1240.91
+ }
+]
