@@ -1,20 +1,25 @@
 // Fiches produits : ikea.fr (nom, type, coloris, dimensions) et catalogue 3D du planificateur, avec recherche d'équivalents.
 "use strict";
 const fs = require("fs"),
-  path = require("path");
+  path = require("path"),
+  os = require("os");
 const K = require("./kreativ.js");
-const CACHE = path.join(__dirname, "..", "cache-ikeafr.json");
+// cache local (hors du dépôt) : IKEA_CACHE_DIR, sinon <tmp>/ikea-planner-cache
+const CACHE_DIR = process.env.IKEA_CACHE_DIR || path.join(os.tmpdir(), "ikea-planner-cache");
+const CACHE = path.join(CACHE_DIR, "ikeafr.json");
 let cache = {};
 try {
   cache = JSON.parse(fs.readFileSync(CACHE, "utf8"));
 } catch (e) {}
 const save = () => {
   try {
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
     const t = CACHE + "." + process.pid;
     fs.writeFileSync(t, JSON.stringify(cache, null, 1));
     fs.renameSync(t, CACHE);
   } catch (e) {}
 };
+const pending = new Map();
 const norm = (s) =>
   String(s || "")
     .normalize("NFD")
@@ -24,13 +29,22 @@ const norm = (s) =>
     .trim();
 
 // fiche ikea.fr d'un article (API de recherche publique, comme liste-achat.js)
-async function infoFr(no) {
+function infoFr(no) {
   no = K.no8(no);
-  if (cache[no]) return cache[no];
-  const r = await fetch(
-    `https://sik.search.blue.cdtapps.com/fr/fr/search-result-page?q=${no}&size=10&types=PRODUCT`,
+  if (cache[no] && !cache[no].missing) return Promise.resolve(cache[no]);
+  if (!pending.has(no))
+    pending.set(
+      no,
+      infoFr0(no).finally(() => pending.delete(no)),
+    );
+  return pending.get(no);
+}
+async function infoFr0(no) {
+  const r = await K.fetchRetry(
+    `https://sik.search.blue.cdtapps.com/${K.MARKET}/search-result-page?q=${no}&size=10&types=PRODUCT`,
   );
-  const j = await r.json();
+  if (!r.ok) throw new Error(`recherche ikea.fr ${no} -> ${r.status}`);
+  const j = JSON.parse(r.text);
   for (const i of j.searchResultPage.products.main.items || []) {
     const p = i.product;
     if (!p) continue;
@@ -70,11 +84,12 @@ function parseSize(s) {
 // meilleur équivalent 3D : mêmes nom/type/coloris/dimensions autant que possible
 async function equivalent(want, token, queries) {
   const seen = new Map();
-  for (const q of queries) {
-    if (!q) continue;
-    for (const f of await K.search(q, token))
-      if (K.has3d(f) && !seen.has(f.localItemNumber)) seen.set(f.localItemNumber, f);
-  }
+  const qs = [...new Set(queries.filter(Boolean).map((q) => q.replace(/\s+/g, " ").trim()))];
+  const res = await Promise.all(qs.map((q) => K.search(q, token).catch(() => [])));
+  for (const L of res)
+    for (const f of L)
+      if (K.has3d(f) && !seen.has(f.localItemNumber) && (!want.accept || want.accept(f)))
+        seen.set(f.localItemNumber, f);
   const W = want.dims || {};
   const score = (f) => {
     const d = K.dims(f);
@@ -107,4 +122,4 @@ async function equivalent(want, token, queries) {
 // clair / foncé, pour départager deux coloris différents de celui demandé
 const tone = (t) => (/noir|brun|fonce|anthracite|noyer/.test(norm(t)) ? "fonce" : "clair");
 const fmtD = (d) => `${d.w.toFixed(0)}×${d.d.toFixed(0)}×${d.h.toFixed(0)}`;
-module.exports = { infoFr, parseSize, equivalent, norm, fmtD };
+module.exports = { CACHE_DIR, infoFr, parseSize, equivalent, norm, fmtD };

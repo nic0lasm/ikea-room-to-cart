@@ -1,22 +1,30 @@
 // Lit la géométrie de la maquette et construit le roomTemplate du room-builder IKEA
 const fs = require("fs"),
   vm = require("vm");
+// Générique : constantes en MAJUSCULES déclarées sur une ligne (const X=…;), évaluées dans l'ordre ; H et P obligatoires,
+// OPEN facultatif (pièce sans ouverture), DOOR/WIN/T facultatifs (non utilisés pour construire la pièce). Maquette .json : {H,P,OPEN}.
 exports.readMaquette = (file) => {
   const src = fs.readFileSync(file, "utf8");
-  const pick = (re) => {
-    const m = src.match(re);
-    if (!m) throw new Error("introuvable: " + re);
-    return m[0];
-  };
-  const code =
-    [
-      pick(/const H=[^\n]*;/),
-      pick(/const P=\[[^\n]*;/),
-      pick(/const DOOR=\{[^\n]*?\};/),
-      pick(/const WIN=\{[^\n]*?\};/),
-      pick(/const OPEN=\{[^\n]*;/),
-    ].join("\n") + "\n;({H,T,P,DOOR,WIN,OPEN})";
-  return vm.runInNewContext(code, {});
+  if (/\.json$/i.test(file)) {
+    const j = JSON.parse(src);
+    if (j.H == null || !j.P) throw new Error("maquette JSON : H et P obligatoires");
+    return { H: j.H, T: j.T, P: j.P, DOOR: j.DOOR, WIN: j.WIN, OPEN: j.OPEN || {} };
+  }
+  const ctx = {};
+  vm.createContext(ctx);
+  for (const m of src.matchAll(
+    /^[ \t]*const[ \t]+([A-Z][A-Z0-9_]*[ \t]*=[^\n]*?;)[ \t]*(\/\/[^\n]*)?$/gm,
+  )) {
+    if (/^ITEMS\b/.test(m[1])) continue;
+    try {
+      vm.runInContext("var " + m[1], ctx, { timeout: 200 });
+    } catch (e) {
+      /* ligne non évaluable : ignorée */
+    }
+  }
+  for (const k of ["H", "P"])
+    if (ctx[k] == null) throw new Error("introuvable: const " + k + "=… (une ligne)");
+  return { H: ctx.H, T: ctx.T, P: ctx.P, DOOR: ctx.DOOR, WIN: ctx.WIN, OPEN: ctx.OPEN || {} };
 };
 // Repère planificateur : monde X = x maquette, monde Z = z maquette (m) ; 2D roomDefinition : (x, y) = (X, -Z)
 exports.toTemplate = (g) => {

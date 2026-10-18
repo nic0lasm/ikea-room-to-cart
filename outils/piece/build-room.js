@@ -281,9 +281,13 @@ fs.mkdirSync(OUT, { recursive: true });
     const half = ((e.size.w * 100) / 2) * Math.abs(s.ux);
     const x0 = Math.min(cx - half, cx + half),
       x1 = Math.max(cx - half, cx + half);
-    const ex = o.glass ? m.WIN : m.DOOR;
-    row(`${name} x début`, ex.x0, x0);
-    row(`${name} x fin`, ex.x1, x1);
+    // attendu tiré de OPEN seul (DOOR/WIN facultatifs) : début/fin le long du mur, projetés comme la mesure
+    const a0 = s.a[0] + s.ux * (o.center - o.w / 2),
+      a1 = s.a[0] + s.ux * (o.center + o.w / 2);
+    if (Math.abs(s.ux) > 0.5) {
+      row(`${name} ${i} x début`, Math.min(a0, a1), x0);
+      row(`${name} ${i} x fin`, Math.max(a0, a1), x1);
+    } else row(`${name} ${i} centre le long du mur ${o.seg}`, o.center, along);
     row(`${name} largeur`, o.w, e.size.w * 100);
     row(`${name} hauteur`, o.h, e.size.h * 100);
     row(`${name} allège (bas)`, 0, (e.position.y - e.size.h / 2) * 100);

@@ -4,12 +4,34 @@
 const fs = require("fs"),
   vm = require("vm");
 
+// tableau ITEMS : `const|let|var ITEMS = [` (ou `ITEMS=window.ITEMS=[`), fermé en comptant les crochets (chaînes et commentaires respectés)
 function loadItems(file) {
   const h = fs.readFileSync(file, "utf8");
-  const a = h.indexOf("const ITEMS=window.ITEMS=[");
-  const b = h.indexOf("];", a);
-  if (a < 0 || b < 0) throw new Error("tableau ITEMS introuvable");
-  const src = h.slice(h.indexOf("[", a), b + 1);
+  const a = h.search(/(?:const|let|var)\s+ITEMS\s*=/);
+  if (a < 0) throw new Error("tableau ITEMS introuvable dans " + file);
+  const s = h.indexOf("[", a);
+  let d = 0,
+    q = null,
+    i = s;
+  for (; i < h.length; i++) {
+    const c = h[i];
+    if (q) {
+      if (c === "\\") i++;
+      else if (c === q) q = null;
+      continue;
+    }
+    if (c === '"' || c === "'" || c === "`") q = c;
+    else if (c === "/" && h[i + 1] === "/") {
+      i = h.indexOf("\n", i);
+      if (i < 0) break;
+    } else if (c === "/" && h[i + 1] === "*") {
+      i = h.indexOf("*/", i) + 1;
+      if (i <= 0) break;
+    } else if (c === "[") d++;
+    else if (c === "]" && --d === 0) break;
+  }
+  if (s < 0 || d !== 0) throw new Error("tableau ITEMS non fermé dans " + file);
+  const src = h.slice(s, i + 1);
   return vm.runInNewContext(
     "(" + src + ")",
     new Proxy({}, { has: () => true, get: (t, k) => (k === Symbol.unscopables ? undefined : 0) }),

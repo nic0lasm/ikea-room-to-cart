@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// liste-achat.js <maquette.html> <version> [--html sortie.html] [--json sortie.json] [--offline]
+// liste-achat.js <maquette.html> <version> [--html sortie.html] [--json sortie.json] [--offline] [--sans-table]
+// --sans-table : n'utilise pas la table BOM intégrée (propre aux anciennes maquettes du bureau) ; une entrée sans refs passe par la recherche par nom.
 // Décompose une version de la maquette en articles IKEA France, récupère les prix actuels
 // (API de recherche publique ikea.fr) et produit un lien qui remplit le panier ikea.fr :
 //   https://www.ikea.com/fr/fr/shoppingcart/?items=<8 chiffres>:<qté>,...
@@ -9,14 +10,17 @@
 "use strict";
 const fs = require("fs"),
   path = require("path"),
-  vm = require("vm");
+  vm = require("vm"),
+  os = require("os");
+const K = require("./lib/kreativ.js"); // fetch avec délai max + nouvelles tentatives
 
 const args = process.argv.slice(2);
 const opt = (k) => {
   const i = args.indexOf(k);
   return i >= 0 ? args[i + 1] : null;
 };
-const OFFLINE = args.includes("--offline");
+const OFFLINE = args.includes("--offline"),
+  NO_TABLE = args.includes("--sans-table");
 const [FILE, VERSION] = args.filter(
   (a, i) => !a.startsWith("--") && !["--html", "--json"].includes(args[i - 1]),
 );
@@ -26,13 +30,19 @@ if (!FILE || !VERSION) {
   );
   process.exit(1);
 }
-const CACHE = path.join(__dirname, "cache-prix.json");
+// cache des prix (pour --offline) hors du dépôt : IKEA_CACHE_DIR, sinon <tmp>/ikea-planner-cache
+const CACHE_DIR = process.env.IKEA_CACHE_DIR || path.join(os.tmpdir(), "ikea-planner-cache");
+const CACHE = path.join(CACHE_DIR, "prix.json");
+const getJson = async (url) => {
+  const r = await K.fetchRetry(url);
+  if (!r.ok) throw new Error(`ikea.fr ${url.slice(0, 90)} -> ${r.status}`);
+  return JSON.parse(r.text);
+};
 
 // ---------- Articles par paquet (on commande des paquets, les besoins sont en pièces) ----------
 const PACK = { 90338417: 2, 70556067: 2, 80524882: 2, 60293566: 2, 80261258: 2 };
 
-// ---------- Repli pour les entrées sans refs (maquettes plus anciennes, voir projets/bureau/archives) ----------
-// id maquette -> articles pour UNE unité (multipliée par it.q)
+// ---------- Décomposition : id maquette -> articles pour UNE unité (multipliée par it.q) ----------
 // [n° article sans points, quantité en pièces, rôle]
 const KNOB = "90338417",
   LEG = "70556067",
@@ -152,31 +162,15 @@ const BOM = {
 };
 
 // ---------- Lecture de la maquette ----------
-function loadItems(file) {
-  const h = fs.readFileSync(file, "utf8");
-  const a = h.indexOf("const ITEMS=window.ITEMS=[");
-  const b = h.indexOf("];", a);
-  if (a < 0 || b < 0) throw new Error("tableau ITEMS introuvable");
-  const src = h.slice(h.indexOf("[", a), b + 1);
-  const ctx = { OAK: 0, BRASS: 0 };
-  return vm.runInNewContext(
-    "(" + src + ")",
-    new Proxy(ctx, {
-      has: () => true,
-      get: (t, k) => (k in t ? t[k] : k === Symbol.unscopables ? undefined : 0),
-    }),
-    { timeout: 1000 },
-  );
-}
+const loadItems = require("./lib/plan.js").loadItems; // lecture robuste du tableau ITEMS (crochets comptés)
 
 // ---------- Prix en ligne ----------
 const fmtNo = (n) => n.replace(/^(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3");
 async function lookup(no, cache) {
   if (cache[no] || OFFLINE) return cache[no] || null;
-  const r = await fetch(
+  const j = await getJson(
     `https://sik.search.blue.cdtapps.com/fr/fr/search-result-page?q=${no}&size=10&types=PRODUCT`,
   );
-  const j = await r.json();
   for (const i of j.searchResultPage.products.main.items) {
     const p = i.product;
     if (!p) continue;
@@ -194,7 +188,6 @@ async function lookup(no, cache) {
           url: v.pipUrl,
         };
         cache[no] = d;
-        await new Promise((s) => setTimeout(s, 250));
         return d;
       }
     }
@@ -204,10 +197,9 @@ async function lookup(no, cache) {
 
 async function searchName(nm, cache, dim = "", col = "") {
   const q = (nm + " " + dim + " " + col).replace(/\(.*?\)/g, "").trim();
-  const r = await fetch(
+  const j = await getJson(
     `https://sik.search.blue.cdtapps.com/fr/fr/search-result-page?q=${encodeURIComponent(q)}&size=24&types=PRODUCT`,
   );
-  const j = await r.json();
   const all = j.searchResultPage.products.main.items
     .map((i) => i.product)
     .filter(Boolean)
@@ -274,11 +266,23 @@ async function searchName(nm, cache, dim = "", col = "") {
   for (const it of sel) {
     // 1) champ refs:[{itemNo,q}] de la maquette : q = nombre de paquets à commander pour TOUTE l'entrée (non multiplié par it.q)
     if (Array.isArray(it.refs) && it.refs.length) {
-      const bom = it.refs.map((r) => [
-        String(r.itemNo).replace(/\D/g, "").padStart(8, "0"),
-        r.q || 1,
-        "refs",
-      ]);
+      // refs strictes : 123.456.78 (ou 8 chiffres) et q entier 1–999 ; sinon exclue du lien (une seule ref invalide l'annulerait)
+      const bom = [];
+      for (const r of it.refs) {
+        const raw = String(r.itemNo == null ? "" : r.itemNo).trim(),
+          q = r.q == null ? 1 : r.q;
+        if (!/^\d{3}\.?\d{3}\.?\d{2}$/.test(raw)) {
+          warn.push(`« ${it.nm} » (${it.id}) : référence mal formée « ${raw} », exclue du lien`);
+          continue;
+        }
+        if (!(Number.isInteger(q) && q >= 1 && q <= 999)) {
+          warn.push(
+            `« ${it.nm} » (${it.id}) : quantité invalide « ${r.q} » pour ${raw}, exclue du lien`,
+          );
+          continue;
+        }
+        bom.push([raw.replace(/\D/g, ""), q, "refs"]);
+      }
       for (const [no, n] of bom) {
         need.set(no, (need.get(no) || 0) + n * (PACK[no] || 1));
       }
@@ -289,7 +293,7 @@ async function searchName(nm, cache, dim = "", col = "") {
       continue;
     }
     // 2) table de décomposition intégrée ; 3) recherche par nom (premier résultat, à vérifier)
-    let bom = BOM[it.id];
+    let bom = NO_TABLE ? null : BOM[it.id];
     if (!bom && !OFFLINE) {
       const dim = ((it.ds || "").match(
         /\d+(?:[.,]\d+)?\s*×\s*\d+(?:[.,]\d+)?(?:\s*×\s*\d+(?:[.,]\d+)?)?/,
@@ -312,8 +316,17 @@ async function searchName(nm, cache, dim = "", col = "") {
     perItem.push({ it, bom });
   }
   const lines = [];
+  // prix relus en parallèle (6 requêtes à la fois)
+  const nos = [...need.keys()],
+    got = {};
+  for (let i = 0; i < nos.length; i += 6)
+    await Promise.all(
+      nos.slice(i, i + 6).map(async (no) => {
+        got[no] = await lookup(no, cache);
+      }),
+    );
   for (const [no, pieces] of need) {
-    const d = await lookup(no, cache);
+    const d = got[no];
     const qty = Math.ceil(pieces / (PACK[no] || 1));
     if (!d) warn.push(`${fmtNo(no)} introuvable sur ikea.fr`);
     else if (!d.sellable) warn.push(`${fmtNo(no)} ${d.name} non vendable en ligne`);
@@ -332,8 +345,16 @@ async function searchName(nm, cache, dim = "", col = "") {
       url: d ? d.url : `https://www.ikea.com/fr/fr/search/?q=${no}`,
     });
   }
-  if (!OFFLINE) fs.writeFileSync(CACHE, JSON.stringify(Object.assign(offCache, cache), null, 1));
+  try {
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+    const t = CACHE + "." + process.pid;
+    fs.writeFileSync(t, JSON.stringify(Object.assign(offCache, cache), null, 1));
+    fs.renameSync(t, CACHE);
+  } catch (e) {}
   const total = Math.round(lines.reduce((s, l) => s + (l.total || 0), 0) * 100) / 100;
+  const sansPrix = lines.filter((l) => l.total == null);
+  if (sansPrix.length)
+    warn.push(`prix non relevé pour ${sansPrix.map((l) => l.ref).join(", ")} : total incomplet`);
   // comparaison avec la maquette (prix des paquets répartis au prorata des pièces)
   const priceOf = Object.fromEntries(lines.map((l) => [l.no, (l.unit || 0) / l.pack]));
   const cmp = perItem.map(({ it, bom }) => {
@@ -391,6 +412,7 @@ async function searchName(nm, cache, dim = "", col = "") {
     version: V,
     lines,
     total,
+    totalIncomplet: sansPrix.length > 0,
     maquetteTotal: maqTotal,
     comparaison: cmp,
     alertes: warn,
@@ -400,6 +422,15 @@ async function searchName(nm, cache, dim = "", col = "") {
   };
   if (opt("--json")) fs.writeFileSync(opt("--json"), JSON.stringify(out, null, 1));
   if (opt("--html")) fs.writeFileSync(opt("--html"), html(out));
+  // code de sortie 2 si le lien est douteux (ref exclue, introuvable, non vendable, choisie par recherche, prix manquant)
+  if (
+    warn.some((w) =>
+      /mal formée|quantité invalide|introuvable|non vendable|aucune référence|1er résultat|total incomplet/.test(
+        w,
+      ),
+    )
+  )
+    process.exitCode = 2;
 })().catch((e) => {
   console.error(e);
   process.exit(1);
