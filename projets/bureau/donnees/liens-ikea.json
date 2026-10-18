@@ -2,13 +2,13 @@
  "date": "2026-10-18",
  "source": "maquette.html (versions A et V) ; versions B à G : archives/maquette-v18.html",
  "pieceVide": "https://www.ikea.com/fr/fr/home-design/share/ccdada6e-6384-427f-a805-94f6fa957805/",
- "note": "Les liens panier vident d'abord le panier ikea.fr (replaceItems=true). Le planificateur affiche les BESTÅ et le PAX en blanc (effet chêne blanchi absent en 3D) ; le panier commande bien l'effet chêne blanchi.",
+ "note": "Les liens panier vident d'abord le panier ikea.fr (replaceItems=true). Dans le planificateur, le bureau, la chaise et l'imprimante déjà possédés sont représentés par des meubles IKEA de même taille, hors panier.",
  "versions": {
   "V": {
-   "titre": "Vdef, version finale",
-   "totalIkeaFr": 1302.91,
-   "panier": "https://www.ikea.com/fr/fr/shoppingcart/?items=10247379:2,50351514:2,60351518:2,40348715:4,30291696:2,90291684:4,90338417:5,60293566:8,50460669:1,90477385:1,20477379:1,80428852:4,00340047:4,50458218:1,70277981:2,50246306:3,00589269:1,60342656:2,50446881:2,00146776:1,80247413:3,40291691:3,80261258:5,80247408:2,70488318:2,60528584:1,70351725:1&replaceItems=true",
-   "planificateur": "https://www.ikea.com/fr/fr/home-design/share/8722c88a-1ef3-4fa6-820d-53302d600156/",
+   "titre": "Vdef, version finale (chêne naturel)",
+   "totalIkeaFr": 1109.9,
+   "panier": "https://www.ikea.com/fr/fr/shoppingcart/?items=30627547:1,90477385:1,29563136:1,39429680:2,59429250:3,20477379:1,00449877:1,60522488:1,10542083:2,20412024:1,50504692:1,00146776:1,70351725:1&replaceItems=true",
+   "planificateur": "https://www.ikea.com/fr/fr/home-design/share/607628ce-052b-43ec-82ec-adc22572c458/",
    "vueDessus": "images/planificateur-V.png"
   },
   "A": {
@@ -19,6 +19,12 @@
   }
  },
  "archives": {
+  "Vdef-v19": {
+   "titre": "Vdef v19 (colonne PAX, chêne blanchi)",
+   "totalIkeaFr": 1302.91,
+   "panier": "https://www.ikea.com/fr/fr/shoppingcart/?items=10247379:2,50351514:2,60351518:2,40348715:4,30291696:2,90291684:4,90338417:5,60293566:8,50460669:1,90477385:1,20477379:1,80428852:4,00340047:4,50458218:1,70277981:2,50246306:3,00589269:1,60342656:2,50446881:2,00146776:1,80247413:3,40291691:3,80261258:5,80247408:2,70488318:2,60528584:1,70351725:1&replaceItems=true",
+   "planificateur": "https://www.ikea.com/fr/fr/home-design/share/8722c88a-1ef3-4fa6-820d-53302d600156/"
+  },
   "B": {
    "totalIkeaFr": 1144.92,
    "panier": "https://www.ikea.com/fr/fr/shoppingcart/?items=10247379:2,50351514:2,60351518:2,40348715:4,30291696:2,90291684:5,90338417:6,60293566:8,50460669:1,50247377:1,80261258:6,70488318:3,60528584:2,60342656:2,50446881:2,20477379:1,80428852:4,00340047:4,00146776:1,80247413:3,40291691:3,80247408:2,70351725:1&replaceItems=true",
