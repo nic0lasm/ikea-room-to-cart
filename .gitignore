@@ -1,0 +1,6 @@
+node_modules/
+out/
+profiles/
+outils/cache-*.json
+*.log
+.DS_Store

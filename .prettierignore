@@ -1,0 +1,4 @@
+*.html
+projets/*/donnees/
+outils/pieces.json
+package-lock.json

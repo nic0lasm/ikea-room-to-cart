@@ -1,0 +1,26 @@
+{
+  "name": "ikea-room-to-cart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modéliser une pièce en 3D à l'échelle, la retrouver dans le planificateur IKEA, puis commander en un clic.",
+  "license": "MIT",
+  "author": "Nicolas Maigre",
+  "repository": "github:nic0lasm/ikea-room-to-cart",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "extraire": "node outils/extraire-donnees.js",
+    "fiche": "node outils/fiche-saisie.js",
+    "panier": "node outils/liste-achat.js",
+    "planificateur": "node outils/maquette-vers-ikea.js",
+    "piece": "node outils/piece/build-room.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1",
+    "prettier": "^3.9.10"
+  }
+}
