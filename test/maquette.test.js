@@ -4,7 +4,7 @@ const assert = require("node:assert/strict");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
-const { execFileSync } = require("child_process");
+const { execFileSync, spawnSync } = require("child_process");
 
 const RACINE = path.join(__dirname, "..");
 const MAQUETTE = path.join(RACINE, "projets/bureau/maquette.html");
@@ -59,11 +59,19 @@ test("les données extraites suivent la maquette", () => {
 });
 
 test("le lien panier de la version finale correspond au panier publié", () => {
-  const out = path.join(dossierTemporaire(), "V.json");
-  lancer("liste-achat.js", MAQUETTE, "V", "--offline", "--json", out);
+  // Sans réseau ni cache, les prix sont inconnus : le script le signale (code 2) mais produit le lien.
+  const dossier = dossierTemporaire();
+  const out = path.join(dossier, "V.json");
+  const r = spawnSync(
+    process.execPath,
+    [path.join(RACINE, "outils/liste-achat.js"), MAQUETTE, "V", "--offline", "--json", out],
+    { encoding: "utf8", env: { ...process.env, IKEA_CACHE_DIR: dossier } },
+  );
+  assert.equal(r.status, 2, r.stderr);
   const panier = JSON.parse(fs.readFileSync(out, "utf8"));
   const liens = require("../projets/bureau/donnees/liens-ikea.json");
   assert.equal(panier.lienRemplace, liens.versions.V.panier);
+  assert.equal(panier.totalIncomplet, true);
   assert.match(
     panier.lien,
     /^https:\/\/www\.ikea\.com\/fr\/fr\/shoppingcart\/\?items=(\d{8}:\d+,)*\d{8}:\d+$/,
