@@ -183,7 +183,10 @@ setTimeout(() => {
           version: V,
           cible: res.shareUrl,
           sortie: path.join(OUT, "verif"),
-          options: { empriseModeleBloquante: !flag("--emprise-modele-avert") },
+          options: {
+            empriseModeleBloquante: !flag("--emprise-modele-avert"),
+            modeles: { __parUid: true, ...(res.corrections || {}) },
+          },
         }),
         120000,
         "vérification",

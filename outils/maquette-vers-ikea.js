@@ -47,6 +47,30 @@ function jsonMerge(file, patch) {
   fs.renameSync(t, file);
   return o;
 }
+// Corrections apprises (modeles-3d.json) : l'éditeur peut tourner / décaler un modèle selon son support et sa position. Chaque correction
+// mémorise son contexte (support, emprise de l'entrée, cap, position sur le support) et ne s'applique qu'à ce contexte ; sinon réapprise.
+const corrCtx = (u) => ({
+  sup: u.parent ? u.parent.a.fiche.id : null,
+  emprise: [Math.round(u.it.w), Math.round(u.it.d)],
+  cap: Math.round((u.yaw * 180) / Math.PI),
+  rel: u.parent ? [Math.round(u.c[0] - u.parent.c[0]), Math.round(u.c[1] - u.parent.c[1])] : null,
+});
+function corrMismatch(L, u) {
+  if (!L.ctx) return "entrée sans contexte (ancien format)";
+  const c = corrCtx(u),
+    o = L.ctx;
+  if (String(o.sup) !== String(c.sup)) return "support différent";
+  if (o.emprise[0] !== c.emprise[0] || o.emprise[1] !== c.emprise[1])
+    return `emprise ${o.emprise.join("×")} → ${c.emprise.join("×")}`;
+  if ((((o.cap - c.cap) % 360) + 360) % 360) return "orientation différente";
+  if (o.rel && c.rel && Math.hypot(o.rel[0] - c.rel[0], o.rel[1] - c.rel[1]) > 2)
+    return "position sur le support différente";
+  return null;
+}
+// une entrée = une liste de variantes {dyaw, k, ctx}, une par contexte rencontré (les entrées sans contexte sont ignorées)
+const MAX_VARIANTES = 8;
+const variantes = (L) =>
+  (L && Array.isArray(L.variantes) ? L.variantes : []).filter((v) => v && v.ctx);
 const readJson = (f) => {
   try {
     return JSON.parse(fs.readFileSync(f, "utf8"));
@@ -255,10 +279,19 @@ async function run(cfg) {
     const learned = readJson(MODELES);
     for (const u of units) {
       const L = learned[`${u.a.fiche.id}|${u.mode}`];
-      if (L) {
-        u.corr = { dyaw: L.dyaw, k: L.k };
-        u.corrSrc = "apprise";
+      if (!L) continue;
+      const vs = variantes(L),
+        v = vs.find((v) => !corrMismatch(v, u));
+      if (!v) {
+        const why = vs.length
+          ? corrMismatch(vs[vs.length - 1], u)
+          : "entrée sans contexte (ancien format)";
+        u.corrIgnoree = why;
+        notes.push(`correction apprise ignorée pour ${u.id} (${why}) : réapprise en mode normal`);
+        continue;
       }
+      u.corr = { dyaw: v.dyaw, k: v.k };
+      u.corrSrc = "apprise";
     }
     const applied = units.filter((u) => u.corr).map((u) => u.id);
     if (applied.length)
@@ -299,14 +332,25 @@ async function run(cfg) {
           // peut venir du voisinage (collision, plinthe) et ne se généralise pas
           if (Math.abs(dyaw) > 0.02)
             pat[`${u.a.fiche.id}|${u.mode}`] = {
-              ...u.corr,
-              nom: `${u.a.fiche.name} ${u.a.fiche.typeName} ${u.a.fiche.localItemNumber}`,
-              date: new Date().toISOString(),
+              u,
+              v: { ...u.corr, ctx: corrCtx(u), date: new Date().toISOString() },
             };
         }
         if (Object.keys(pat).length)
           try {
-            jsonMerge(MODELES, pat);
+            // relu juste avant l'écriture : on remplace seulement la variante du même contexte
+            const cur = readJson(MODELES),
+              up = {};
+            for (const [key, { u, v }] of Object.entries(pat)) {
+              const vs = variantes(cur[key])
+                .filter((o) => corrMismatch(o, u))
+                .slice(-(MAX_VARIANTES - 1));
+              up[key] = {
+                nom: `${u.a.fiche.name} ${u.a.fiche.typeName} ${u.a.fiche.localItemNumber}`,
+                variantes: [...vs, v],
+              };
+            }
+            jsonMerge(MODELES, up);
           } catch (e) {
             notes.push("modeles-3d.json non écrit : " + e.message);
           }
@@ -342,6 +386,11 @@ async function run(cfg) {
       lap("captures");
     } else {
       V1 = await step("verification", () => verifyStored(comp, placed, units, m, notes));
+      // modèle que l'éditeur réoriente, dont la correction apprise ne vaut pas ici : le rendu ne peut pas être garanti sans navigateur
+      for (const u of units.filter((u) => u.corrIgnoree))
+        V1.fails.push(
+          `${u.id} : rendu non garanti (l'éditeur réoriente ce modèle ; ${u.corrIgnoree}) → relancer en mode normal`,
+        );
       notes.push(
         "mode rapide : vérification sur le JSON enregistré (meubles, positions, rotations envoyées) et la géométrie prévue, sans rendu de l’éditeur IKEA ni capture",
       );
@@ -417,6 +466,11 @@ async function run(cfg) {
       substitutions: subs,
       notes,
       passes,
+      corrections: Object.fromEntries(
+        units
+          .filter((u) => u.corr && u.uniqueId)
+          .map((u) => [u.uniqueId, { dyaw: u.corr.dyaw, k: u.corr.k, src: u.corrSrc }]),
+      ),
       mode: rapide ? "rapide" : "navigateur",
       placedFurniture: placed,
       durationS: dur,

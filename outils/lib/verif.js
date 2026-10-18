@@ -535,7 +535,7 @@ function lireDesign(J, modeles = {}) {
     o.facade = o.facade.map((v) => v / n);
     o.vertical = Math.abs((oz[1] - o0[1]) / 100) < 0.05;
     const mode = /^mur/.test(o.pose) ? "mur" : /^sur/.test(o.pose) ? "pile" : "sol",
-      L = modeles[`${f.id}|${mode}`];
+      L = modeles.__parUid ? modeles[p.uniqueId] : modeles[`${f.id}|${mode}`];
     if (L && isFinite(L.dyaw) && o.vertical) {
       // rendu prévu par la correction apprise (sinon le JSON enregistré, volontairement compensé, paraîtrait faux)
       const ps = Math.atan2(o.facade[0], o.facade[1]) + L.dyaw,

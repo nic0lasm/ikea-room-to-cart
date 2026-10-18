@@ -38,7 +38,7 @@ Chaque script affiche son mode d'emploi sans argument (ou avec `--help`). Foncti
 
 ## Fichiers versionnés
 
-`pieces.json` garde la scène IKEA de chaque pièce déjà construite. `modeles-3d.json` garde les corrections d'orientation apprises sur les modèles que l'éditeur fait pivoter. Les caches, profils Chromium et sorties restent hors du dépôt.
+`pieces.json` garde la scène IKEA de chaque pièce déjà construite. `modeles-3d.json` garde les corrections d'orientation apprises sur les modèles que l'éditeur fait pivoter. Une entrée garde une variante par contexte rencontré (support, emprise, orientation, position sur le support à 2 cm près) : si l'objet change de place, par exemple une lampe déplacée sur le bureau, `--rapide` ignore la correction et sort en code 2, et un passage en mode normal la réapprend. Les caches, profils Chromium et sorties restent hors du dépôt.
 
 ## Pièges connus
 
