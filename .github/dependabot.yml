@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    target-branch: main
+    schedule:
+      interval: weekly
+    groups:
+      dependances:
+        patterns: ["*"]
+        update-types: [minor, patch]
+    # Une version compromise est en général retirée dans les jours qui suivent sa publication :
+    # on attend une semaine avant de la proposer. Les alertes de sécurité ne sont pas retardées.
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: chore
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: main
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: ci
