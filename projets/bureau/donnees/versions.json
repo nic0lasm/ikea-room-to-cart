@@ -60,19 +60,16 @@
    "p1s",
    "stork",
    "billyV",
-   "colV",
-   "murD",
    "murN",
-   "chevetV",
-   "fondV",
+   "storkT",
+   "murA",
+   "chevetN",
+   "colonneN",
+   "fondN",
    "acc",
    "lamp",
    "fridhult",
-   "malm",
-   "lycksele",
-   "glostad",
-   "hammarn",
-   "sally"
+   "hammarn"
   ],
   "cochesParDefaut": [
    "desk",
@@ -80,15 +77,15 @@
    "p1s",
    "stork",
    "billyV",
-   "colV",
-   "murD",
    "murN",
-   "chevetV",
-   "fondV",
+   "storkT",
+   "murA",
+   "chevetN",
+   "colonneN",
    "acc",
    "lamp",
    "fridhult"
   ],
-  "totalMaquette": 1109.9
+  "totalMaquette": 1188.92
  }
 ]

@@ -229,8 +229,8 @@
   "cocheParDefaut": true,
   "positions": {
    "V": {
-    "x": 15,
-    "z": 254,
+    "x": 21,
+    "z": 288,
     "y": 75
    }
   }
@@ -238,7 +238,7 @@
  {
   "id": "stork",
   "nom": "STORKLINTA commode 6 tiroirs",
-  "description": "Motif chêne, 140 × 50 × 75 : 6 grands tiroirs, dessus à 75 cm, collée au bureau (74). Décollée de 5 cm du mur pour les câbles et les 15 cm d’air derrière l’imprimante. Elle porte la BILLY et l’imprimante (22 kg répartis sur 140 × 50 : ça passe en pratique, mais IKEA n’indique pas de charge sur le dessus). Tapis anti-vibration sous l’imprimante, commode fixée au mur obligatoirement. Facultatif : IKEA conseille 3 boîtes SKUBB pour organiser les tiroirs",
+  "description": "Motif chêne, 140 × 50 × 75, 6 grands tiroirs, poignées noires. Posée sur 2 tasseaux de 10 cm vissés au mur (magasin de bricolage, quelques euros) : façade à 60 cm du mur, au même plan que les autres meubles bas du mur et la BILLY, sous la limite de 69 cm du trumeau. Les 10 cm derrière servent à passer les câbles. Fixée au mur à travers les tasseaux. Son dessus plein porte la BILLY et l’imprimante (22 kg) : tapis anti-vibration conseillé. Facultatif : 3 boîtes SKUBB",
   "prixUnitaire": 169,
   "quantite": 1,
   "statutPrix": "vérifié",
@@ -258,15 +258,39 @@
   "cocheParDefaut": true,
   "positions": {
    "V": {
-    "x": 5,
-    "z": 163
+    "x": 10,
+    "z": 203
    }
   }
  },
  {
+  "id": "storkS",
+  "nom": "STORKLINTA commode 2 tiroirs",
+  "description": "Motif chêne, 40 × 50 × 53, 2 tiroirs, dans l’angle de la porte-fenêtre, elle aussi sur tasseaux de 10 cm, avec la façade à 60. Elle reste basse pour laisser l’interrupteur (1,10 m) accessible. Son dessus sert de tablette (bobines du moment, outils). Mur de 340 pile : bureau 160 + 140 + 40 = 340. Pose dans l’ordre petite commode, grande commode, puis bureau : chaque meuble entre par l’avant. Si ça résiste, c’est le bureau qu’on décale",
+  "prixUnitaire": 49.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 50,
+   "d": 40,
+   "h": 53
+  },
+  "type": "chest",
+  "refs": [
+   {
+    "itemNo": "206.314.13",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {},
+  "face": "+x"
+ },
+ {
   "id": "billyV",
   "nom": "BILLY 80 bibliothèque",
-  "description": "BILLY 80 × 28 × 106 motif chêne posée sur la commode, côté bureau : la bibliothèque, à portée de main assis. Elle ferme la niche imprimante à gauche. Posée en hauteur : à fixer au mur avec l’anti-basculement fourni",
+  "description": "BILLY 80 × 28 × 106 motif chêne, posée sur la commode côté bureau et avancée au plan des façades (60 cm). À fixer au mur avec une équerre. Elle ferme la niche imprimante à gauche",
   "prixUnitaire": 59.99,
   "quantite": 1,
   "statutPrix": "vérifié",
@@ -286,16 +310,45 @@
   "cocheParDefaut": true,
   "positions": {
    "V": {
-    "x": 5,
-    "z": 163,
+    "x": 32,
+    "z": 203,
     "y": 75
+   }
+  }
+ },
+ {
+  "id": "murN",
+  "nom": "BESTÅ murale à porte, toit de la niche",
+  "description": "BESTÅ 60 × 23 × 38, porte HEDEVIKEN plaqué chêne à pression, rail fourni. Fixée à 1,64 m au-dessus de l’imprimante, avec le dessus à 2,02 m, aligné sur les muraux du bureau. La niche fait 60 × 89 cm (85 cm nécessaires couvercle AMS ouvert) et 21 cm d’air derrière l’imprimante. Le meuble range le filament",
+  "prixUnitaire": 75,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "V": {
+    "x": 0,
+    "z": 283,
+    "y": 164
    }
   }
  },
  {
   "id": "colV",
   "nom": "BILLY/OXBERG colonne à portes",
-  "description": "BILLY 40 × 30 × 202 motif chêne avec 2 portes OXBERG chêne, dans l’angle de la porte-fenêtre : bobines, outils et consommables cachés. Elle ferme la niche imprimante à droite. Elle laisse l’interrupteur (x 45) libre et ne gêne pas le vantail. Mur mesuré à 340 pile = bureau 160 + commode 140 + colonne 40 : jeu nul. Pose dans l’ordre colonne, commode, puis bureau : chaque meuble entre par l’avant, sans glisser le long du mur. Si un meuble résiste, c’est le bureau (autoportant) qu’on décale. Si la plinthe gêne la colonne, l’entailler sur 30 cm",
+  "description": "BILLY 40 × 30 × 202 motif chêne avec 2 portes OXBERG chêne, poignées noires. Décollée du mur sur tasseaux pour que ses portes soient au plan des commodes (60 cm) : le vide derrière sert de gaine à câbles. Fixée au mur à travers les tasseaux (anti-basculement)",
   "prixUnitaire": 99.99,
   "quantite": 1,
   "statutPrix": "vérifié",
@@ -313,12 +366,1216 @@
   ],
   "groupe": null,
   "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "storkT",
+  "nom": "STORKLINTA 5 tiroirs 40 × 120",
+  "description": "Motif chêne, 40 × 50 × 120, 5 tiroirs, poignées noires. Colonne de tiroirs à côté du bureau, sur tasseaux de 10 cm (façade à 60). Fixée au mur",
+  "prixUnitaire": 119,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 50,
+   "d": 40,
+   "h": 120
+  },
+  "type": "chest",
+  "refs": [
+   {
+    "itemNo": "006.275.39",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "V": {
+    "x": 10,
+    "z": 163
+   }
+  }
+ },
+ {
+  "id": "stork70a",
+  "nom": "STORKLINTA 3 tiroirs 70",
+  "description": "Motif chêne, 70 × 50 × 75, 3 tiroirs, dessus plein, poignées noires. Sur tasseaux de 10 cm (façade à 60), fixée au mur",
+  "prixUnitaire": 89.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 50,
+   "d": 70,
+   "h": 75
+  },
+  "type": "chest",
+  "refs": [
+   {
+    "itemNo": "706.275.31",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "stork70b",
+  "nom": "STORKLINTA 3 tiroirs 70 (2e)",
+  "description": "Même commode que la précédente, collée à elle : les deux dessus forment un plan continu de 140 cm à 75 cm de haut",
+  "prixUnitaire": 89.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 50,
+   "d": 70,
+   "h": 75
+  },
+  "type": "chest",
+  "refs": [
+   {
+    "itemNo": "706.275.31",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1bas1201",
+  "nom": "BESTÅ bas 120 à tiroirs, sur pieds",
+  "description": "BESTÅ 120 × 42 × 64 blanc, 4 tiroirs à ouverture par pression avec façades HEDEVIKEN plaqué chêne (sans poignée), plateau BESTÅ plaqué chêne 120 × 42. Sur 5 pieds STUBBARP brun noir (3 lots de 2) : 10 à 11 cm de garde au sol pour l’aspirateur robot. Dessus à 76 cm. Assemblé en pièces, pas de combinaison toute faite",
+  "prixUnitaire": 355,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 120,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "102.458.46",
+    "q": 1
+   },
+   {
+    "itemNo": "703.515.13",
+    "q": 2
+   },
+   {
+    "itemNo": "803.515.17",
+    "q": 2
+   },
+   {
+    "itemNo": "304.883.15",
+    "q": 4
+   },
+   {
+    "itemNo": "804.917.11",
+    "q": 2
+   },
+   {
+    "itemNo": "004.917.05",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 3
+   },
+   {
+    "itemNo": "204.729.18",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1bas1202",
+  "nom": "BESTÅ bas 120 à tiroirs, sur pieds",
+  "description": "BESTÅ 120 × 42 × 64 blanc, 4 tiroirs à ouverture par pression avec façades HEDEVIKEN plaqué chêne (sans poignée), plateau BESTÅ plaqué chêne 120 × 42. Sur 5 pieds STUBBARP brun noir (3 lots de 2) : 10 à 11 cm de garde au sol pour l’aspirateur robot. Dessus à 76 cm. Assemblé en pièces, pas de combinaison toute faite",
+  "prixUnitaire": 355,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 120,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "102.458.46",
+    "q": 1
+   },
+   {
+    "itemNo": "703.515.13",
+    "q": 2
+   },
+   {
+    "itemNo": "803.515.17",
+    "q": 2
+   },
+   {
+    "itemNo": "304.883.15",
+    "q": 4
+   },
+   {
+    "itemNo": "804.917.11",
+    "q": 2
+   },
+   {
+    "itemNo": "004.917.05",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 3
+   },
+   {
+    "itemNo": "204.729.18",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1bas60n1",
+  "nom": "BESTÅ bas 60 niche imprimante, sur pieds",
+  "description": "BESTÅ 60 × 40 × 64 blanc, porte HEDEVIKEN plaqué chêne à pression, sur 4 pieds STUBBARP brun noir (10 à 11 cm de garde au sol). Dessus blanc : IKEA ne fait pas de plateau chêne de 60. Décollé de 12 cm du mur pour laisser 15 cm d’air derrière l’imprimante (22 kg)",
+  "prixUnitaire": 95,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 60,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "302.458.50",
+    "q": 1
+   },
+   {
+    "itemNo": "704.916.98",
+    "q": 1
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 1
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1billy801",
+  "nom": "BILLY 80 bibliothèque",
+  "description": "BILLY 80 × 28 × 106 motif chêne posée sur un bas BESTÅ (donc au-dessus du sol), fixée au mur",
+  "prixUnitaire": 59.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 80,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "904.773.85",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1billy401",
+  "nom": "BILLY 40 bibliothèque",
+  "description": "BILLY 40 × 28 × 106 motif chêne posée sur un bas BESTÅ, fixée au mur",
+  "prixUnitaire": 49.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 40,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "204.773.79",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1billy802",
+  "nom": "BILLY 80 bibliothèque",
+  "description": "BILLY 80 × 28 × 106 motif chêne posée sur un bas BESTÅ (donc au-dessus du sol), fixée au mur",
+  "prixUnitaire": 59.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 80,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "904.773.85",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1billy402",
+  "nom": "BILLY 40 bibliothèque",
+  "description": "BILLY 40 × 28 × 106 motif chêne posée sur un bas BESTÅ, fixée au mur",
+  "prixUnitaire": 49.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 40,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "204.773.79",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l1mur381",
+  "nom": "BESTÅ murale à porte, toit de niche",
+  "description": "BESTÅ 60 × 23 × 38, porte HEDEVIKEN plaqué chêne à pression : ferme la niche imprimante et range le filament",
+  "prixUnitaire": 75,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2mur641",
+  "nom": "BESTÅ murale à porte",
+  "description": "BESTÅ 60 × 23 × 64, porte HEDEVIKEN plaqué chêne à pression, suspendue : le robot passe dessous",
+  "prixUnitaire": 90,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 64
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "394.296.80",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2mur642",
+  "nom": "BESTÅ murale à porte",
+  "description": "BESTÅ 60 × 23 × 64, porte HEDEVIKEN plaqué chêne à pression, suspendue : le robot passe dessous",
+  "prixUnitaire": 90,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 64
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "394.296.80",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2bas1201",
+  "nom": "BESTÅ bas 120 à tiroirs, sur pieds",
+  "description": "BESTÅ 120 × 42 × 64 blanc, 4 tiroirs à ouverture par pression avec façades HEDEVIKEN plaqué chêne (sans poignée), plateau BESTÅ plaqué chêne 120 × 42. Sur 5 pieds STUBBARP brun noir (3 lots de 2) : 10 à 11 cm de garde au sol pour l’aspirateur robot. Dessus à 76 cm. Assemblé en pièces, pas de combinaison toute faite",
+  "prixUnitaire": 355,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 120,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "102.458.46",
+    "q": 1
+   },
+   {
+    "itemNo": "703.515.13",
+    "q": 2
+   },
+   {
+    "itemNo": "803.515.17",
+    "q": 2
+   },
+   {
+    "itemNo": "304.883.15",
+    "q": 4
+   },
+   {
+    "itemNo": "804.917.11",
+    "q": 2
+   },
+   {
+    "itemNo": "004.917.05",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 3
+   },
+   {
+    "itemNo": "204.729.18",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2billy801",
+  "nom": "BILLY 80 bibliothèque",
+  "description": "BILLY 80 × 28 × 106 motif chêne posée sur un bas BESTÅ (donc au-dessus du sol), fixée au mur",
+  "prixUnitaire": 59.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 80,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "904.773.85",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2billy401",
+  "nom": "BILLY 40 bibliothèque",
+  "description": "BILLY 40 × 28 × 106 motif chêne posée sur un bas BESTÅ, fixée au mur",
+  "prixUnitaire": 49.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 40,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "204.773.79",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2lyck1",
+  "nom": "LYCKSELE LÖVÅS canapé convertible",
+  "description": "Limite : déplié, il arrive à 3,5 cm de la place de la chaise, qu’il faut ranger pour la nuit. 2 places, 142 × 100 × 87, jaune Vansbro, vrai matelas, couchage 140 × 188. Les 142 cm de large passent ici (hors du renfoncement de 138). Garde au sol non indiquée par IKEA : le robot n’y passera sans doute pas",
+  "prixUnitaire": 399,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 100,
+   "d": 142,
+   "h": 87
+  },
+  "type": "sofa",
+  "refs": [
+   {
+    "itemNo": "495.632.01",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2bas60n1",
+  "nom": "BESTÅ bas 60 niche imprimante, sur pieds",
+  "description": "BESTÅ 60 × 40 × 64 blanc, porte HEDEVIKEN plaqué chêne à pression, sur 4 pieds STUBBARP brun noir (10 à 11 cm de garde au sol). Dessus blanc : IKEA ne fait pas de plateau chêne de 60. Décollé de 12 cm du mur pour laisser 15 cm d’air derrière l’imprimante (22 kg)",
+  "prixUnitaire": 95,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 60,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "302.458.50",
+    "q": 1
+   },
+   {
+    "itemNo": "704.916.98",
+    "q": 1
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 1
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l2mur381",
+  "nom": "BESTÅ murale à porte, toit de niche",
+  "description": "BESTÅ 60 × 23 × 38, porte HEDEVIKEN plaqué chêne à pression : ferme la niche imprimante et range le filament",
+  "prixUnitaire": 75,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l3lyck1",
+  "nom": "LYCKSELE LÖVÅS canapé convertible",
+  "description": "Limite : déplié, il s’arrête à 1 cm de la chaise, qu’il vaut mieux pousser sous le bureau pour la nuit. 2 places, 142 × 100 × 87, jaune Vansbro, vrai matelas, couchage 140 × 188. Les 142 cm de large passent ici (hors du renfoncement de 138). Garde au sol non indiquée par IKEA : le robot n’y passera sans doute pas",
+  "prixUnitaire": 399,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 100,
+   "d": 142,
+   "h": 87
+  },
+  "type": "sofa",
+  "refs": [
+   {
+    "itemNo": "495.632.01",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l3bas1201",
+  "nom": "BESTÅ bas 120 à tiroirs, sur pieds",
+  "description": "BESTÅ 120 × 42 × 64 blanc, 4 tiroirs à ouverture par pression avec façades HEDEVIKEN plaqué chêne (sans poignée), plateau BESTÅ plaqué chêne 120 × 42. Sur 5 pieds STUBBARP brun noir (3 lots de 2) : 10 à 11 cm de garde au sol pour l’aspirateur robot. Dessus à 76 cm. Assemblé en pièces, pas de combinaison toute faite",
+  "prixUnitaire": 355,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 120,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "102.458.46",
+    "q": 1
+   },
+   {
+    "itemNo": "703.515.13",
+    "q": 2
+   },
+   {
+    "itemNo": "803.515.17",
+    "q": 2
+   },
+   {
+    "itemNo": "304.883.15",
+    "q": 4
+   },
+   {
+    "itemNo": "804.917.11",
+    "q": 2
+   },
+   {
+    "itemNo": "004.917.05",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 3
+   },
+   {
+    "itemNo": "204.729.18",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l3bas60n1",
+  "nom": "BESTÅ bas 60 niche imprimante, sur pieds",
+  "description": "BESTÅ 60 × 40 × 64 blanc, porte HEDEVIKEN plaqué chêne à pression, sur 4 pieds STUBBARP brun noir (10 à 11 cm de garde au sol). Dessus blanc : IKEA ne fait pas de plateau chêne de 60. Décollé de 12 cm du mur pour laisser 15 cm d’air derrière l’imprimante (22 kg)",
+  "prixUnitaire": 95,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 60,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "302.458.50",
+    "q": 1
+   },
+   {
+    "itemNo": "704.916.98",
+    "q": 1
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 1
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l3billy801",
+  "nom": "BILLY 80 bibliothèque",
+  "description": "BILLY 80 × 28 × 106 motif chêne posée sur un bas BESTÅ (donc au-dessus du sol), fixée au mur",
+  "prixUnitaire": 59.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 80,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "904.773.85",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l3billy401",
+  "nom": "BILLY 40 bibliothèque",
+  "description": "BILLY 40 × 28 × 106 motif chêne posée sur un bas BESTÅ, fixée au mur",
+  "prixUnitaire": 49.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 40,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "204.773.79",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l3mur381",
+  "nom": "BESTÅ murale à porte, toit de niche",
+  "description": "BESTÅ 60 × 23 × 38, porte HEDEVIKEN plaqué chêne à pression : ferme la niche imprimante et range le filament",
+  "prixUnitaire": 75,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l3mur641",
+  "nom": "BESTÅ murale à porte",
+  "description": "BESTÅ 60 × 23 × 64, porte HEDEVIKEN plaqué chêne à pression, suspendue : le robot passe dessous",
+  "prixUnitaire": 90,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 64
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "394.296.80",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l4bas1201",
+  "nom": "BESTÅ bas 120 à tiroirs, sur pieds",
+  "description": "Cloison basse dos au bureau, côté gauche de la pièce : on y accède depuis l’allée de 68 cm le long du mur gauche. BESTÅ 120 × 42 × 64 blanc, 4 tiroirs à ouverture par pression avec façades HEDEVIKEN plaqué chêne (sans poignée), plateau BESTÅ plaqué chêne 120 × 42. Sur 5 pieds STUBBARP brun noir (3 lots de 2) : 10 à 11 cm de garde au sol pour l’aspirateur robot. Dessus à 76 cm. Assemblé en pièces, pas de combinaison toute faite",
+  "prixUnitaire": 355,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 120,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "102.458.46",
+    "q": 1
+   },
+   {
+    "itemNo": "703.515.13",
+    "q": 2
+   },
+   {
+    "itemNo": "803.515.17",
+    "q": 2
+   },
+   {
+    "itemNo": "304.883.15",
+    "q": 4
+   },
+   {
+    "itemNo": "804.917.11",
+    "q": 2
+   },
+   {
+    "itemNo": "004.917.05",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 3
+   },
+   {
+    "itemNo": "204.729.18",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l4bas60n1",
+  "nom": "BESTÅ bas 60 niche imprimante, sur pieds",
+  "description": "BESTÅ 60 × 40 × 64 blanc, porte HEDEVIKEN plaqué chêne à pression, sur 4 pieds STUBBARP brun noir (10 à 11 cm de garde au sol). Dessus blanc : IKEA ne fait pas de plateau chêne de 60. Décollé de 12 cm du mur pour laisser 15 cm d’air derrière l’imprimante (22 kg)",
+  "prixUnitaire": 95,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 60,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "302.458.50",
+    "q": 1
+   },
+   {
+    "itemNo": "704.916.98",
+    "q": 1
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 1
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l4billy801",
+  "nom": "BILLY 80 bibliothèque",
+  "description": "BILLY 80 × 28 × 106 motif chêne posée sur un bas BESTÅ (donc au-dessus du sol), fixée au mur",
+  "prixUnitaire": 59.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 80,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "904.773.85",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l4billy401",
+  "nom": "BILLY 40 bibliothèque",
+  "description": "BILLY 40 × 28 × 106 motif chêne posée sur un bas BESTÅ, fixée au mur",
+  "prixUnitaire": 49.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 40,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "204.773.79",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l4mur381",
+  "nom": "BESTÅ murale à porte, toit de niche",
+  "description": "BESTÅ 60 × 23 × 38, porte HEDEVIKEN plaqué chêne à pression : ferme la niche imprimante et range le filament",
+  "prixUnitaire": 75,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l5bas1201",
+  "nom": "BESTÅ bas 120 à tiroirs, sur pieds",
+  "description": "BESTÅ 120 × 42 × 64 blanc, 4 tiroirs à ouverture par pression avec façades HEDEVIKEN plaqué chêne (sans poignée), plateau BESTÅ plaqué chêne 120 × 42. Sur 5 pieds STUBBARP brun noir (3 lots de 2) : 10 à 11 cm de garde au sol pour l’aspirateur robot. Dessus à 76 cm. Assemblé en pièces, pas de combinaison toute faite",
+  "prixUnitaire": 355,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 120,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "102.458.46",
+    "q": 1
+   },
+   {
+    "itemNo": "703.515.13",
+    "q": 2
+   },
+   {
+    "itemNo": "803.515.17",
+    "q": 2
+   },
+   {
+    "itemNo": "304.883.15",
+    "q": 4
+   },
+   {
+    "itemNo": "804.917.11",
+    "q": 2
+   },
+   {
+    "itemNo": "004.917.05",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 3
+   },
+   {
+    "itemNo": "204.729.18",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l5billy801",
+  "nom": "BILLY 80 bibliothèque",
+  "description": "BILLY 80 × 28 × 106 motif chêne posée sur un bas BESTÅ (donc au-dessus du sol), fixée au mur",
+  "prixUnitaire": 59.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 80,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "904.773.85",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l5billy802",
+  "nom": "BILLY 40 bibliothèque",
+  "description": "BILLY 40 × 28 × 106 motif chêne posée sur un bas BESTÅ (donc au-dessus du sol), fixée au mur",
+  "prixUnitaire": 49.99,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 28,
+   "d": 40,
+   "h": 106
+  },
+  "type": "billyO",
+  "refs": [
+   {
+    "itemNo": "204.773.79",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l5bas60n1",
+  "nom": "BESTÅ bas 60 niche imprimante, sur pieds",
+  "description": "BESTÅ 60 × 40 × 64 blanc, porte HEDEVIKEN plaqué chêne à pression, sur 4 pieds STUBBARP brun noir (10 à 11 cm de garde au sol). Dessus blanc : IKEA ne fait pas de plateau chêne de 60. Décollé de 12 cm du mur pour laisser 15 cm d’air derrière l’imprimante (22 kg)",
+  "prixUnitaire": 95,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 42,
+   "d": 60,
+   "h": 76
+  },
+  "type": "bas",
+  "refs": [
+   {
+    "itemNo": "302.458.50",
+    "q": 1
+   },
+   {
+    "itemNo": "704.916.98",
+    "q": 1
+   },
+   {
+    "itemNo": "802.612.58",
+    "q": 1
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "l5mur381",
+  "nom": "BESTÅ murale à porte, toit de niche",
+  "description": "BESTÅ 60 × 23 × 38, porte HEDEVIKEN plaqué chêne à pression : ferme la niche imprimante et range le filament",
+  "prixUnitaire": 75,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "murA",
+  "nom": "BESTÅ muraux au-dessus du bureau",
+  "description": "Même place que les cubes EKET de la A (qui n’existent qu’en chêne blanchi) : 2 BESTÅ 60 × 23 × 38 à porte HEDEVIKEN plaqué chêne à pression, rail fourni, fixés à 1,50 m. 76 cm libres au-dessus du plateau",
+  "prixUnitaire": 150,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 120,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
   "positions": {
    "V": {
     "x": 0,
-    "z": 303
+    "z": 22,
+    "y": 150
    }
   }
+ },
+ {
+  "id": "l6toit",
+  "nom": "BESTÅ murale 60 × 40, toit de la niche",
+  "description": "Caisson BESTÅ 60 × 40 × 38 blanc (502.458.49) sur rail de suspension, porte HEDEVIKEN plaqué chêne à pression : couvre l’imprimante sur 27 de ses 39 cm et range le filament. Fixé à 1,64 m : couvercle ouvert (1,61 m) libre. Prix estimé, références porte et rail à vérifier",
+  "prixUnitaire": 85,
+  "quantite": 1,
+  "statutPrix": "estimé",
+  "dimensions": {
+   "w": 42,
+   "d": 60,
+   "h": 38
+  },
+  "type": "bestaW",
+  "refs": [
+   {
+    "itemNo": "502.458.49",
+    "q": 1
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {}
+ },
+ {
+  "id": "chevetN",
+  "nom": "BESTÅ chevet côté porte, sur pieds",
+  "description": "Comme dans la A, mais en chêne naturel : BESTÅ 60 × 23 × 64 blanc avec porte HEDEVIKEN plaqué chêne à ouverture par pression (ensemble 394.296.80), posé sur 4 pieds STUBBARP brun noir (10 cm de garde au sol, le robot passe). 74 cm de haut, au ras de l’accoudoir",
+  "prixUnitaire": 100,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 60,
+   "h": 74
+  },
+  "type": "besta",
+  "refs": [
+   {
+    "itemNo": "394.296.80",
+    "q": 1
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "V": {
+    "x": 306.2,
+    "z": 125
+   }
+  },
+  "face": "-x"
+ },
+ {
+  "id": "colonneN",
+  "nom": "BESTÅ colonne côté fenêtre, sur pieds",
+  "description": "Comme dans la A, mais en chêne naturel : 2 BESTÅ 60 × 23 × 64 blancs superposés, portes HEDEVIKEN plaqué chêne à pression (2 ensembles 394.296.80), sur pieds STUBBARP (le robot passe). 138 cm de haut entre le canapé et la porte-fenêtre. Canapé déplié, mieux vaut ne pas ouvrir la porte du bas",
+  "prixUnitaire": 190,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 60,
+   "d": 23.3,
+   "h": 138
+  },
+  "type": "besta",
+  "refs": [
+   {
+    "itemNo": "394.296.80",
+    "q": 2
+   },
+   {
+    "itemNo": "602.935.66",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": true,
+  "positions": {
+   "V": {
+    "x": 249.5,
+    "z": 319.7
+   }
+  },
+  "face": "-z"
+ },
+ {
+  "id": "fondN",
+  "nom": "BESTÅ muraux au fond du renfoncement",
+  "description": "Comme dans la A : 2 BESTÅ muraux 60 × 23 × 38 à porte HEDEVIKEN plaqué chêne à pression, fixés à 1,35 m au-dessus du dossier du canapé. Attention, ils se retrouvent au-dessus de la tête du lit (environ 90 cm au-dessus du matelas). Décochés par défaut : à cocher pour ajouter ce rangement",
+  "prixUnitaire": 150,
+  "quantite": 1,
+  "statutPrix": "vérifié",
+  "dimensions": {
+   "w": 23.3,
+   "d": 120,
+   "h": 38
+  },
+  "type": "besta",
+  "refs": [
+   {
+    "itemNo": "594.292.50",
+    "q": 2
+   }
+  ],
+  "groupe": null,
+  "cocheParDefaut": false,
+  "positions": {
+   "V": {
+    "x": 362.2,
+    "z": 194,
+    "y": 135
+   }
+  },
+  "face": "-x"
  },
  {
   "id": "murD",
@@ -341,42 +1598,7 @@
   ],
   "groupe": null,
   "cocheParDefaut": true,
-  "positions": {
-   "V": {
-    "x": 0,
-    "z": 43,
-    "y": 138
-   }
-  }
- },
- {
-  "id": "murN",
-  "nom": "BESTÅ murale à porte, toit de la niche",
-  "description": "BESTÅ 60 × 22 × 38, porte HEDEVIKEN plaqué chêne à pression, rail fourni. Fixée à 1,64 m entre la BILLY et la colonne, dessus à 2,02 m : la niche fait 60 × 89 cm, soit 4 cm de marge sur les 85 cm nécessaires couvercle AMS ouvert, et le meuble range le filament",
-  "prixUnitaire": 75,
-  "quantite": 1,
-  "statutPrix": "vérifié",
-  "dimensions": {
-   "w": 23.3,
-   "d": 60,
-   "h": 38
-  },
-  "type": "bestaW",
-  "refs": [
-   {
-    "itemNo": "594.292.50",
-    "q": 1
-   }
-  ],
-  "groupe": null,
-  "cocheParDefaut": true,
-  "positions": {
-   "V": {
-    "x": 0,
-    "z": 243,
-    "y": 164
-   }
-  }
+  "positions": {}
  },
  {
   "id": "chevetV",
@@ -399,42 +1621,7 @@
   ],
   "groupe": null,
   "cocheParDefaut": true,
-  "positions": {
-   "V": {
-    "x": 329.5,
-    "z": 185
-   }
-  }
- },
- {
-  "id": "fondV",
-  "nom": "BESTÅ murales au fond du renfoncement",
-  "description": "2 BESTÅ 60 × 23 × 38 à porte HEDEVIKEN plaqué chêne, fixées à 1,35 m au-dessus du dossier. Structure blanche",
-  "prixUnitaire": 150,
-  "quantite": 1,
-  "statutPrix": "vérifié",
-  "dimensions": {
-   "w": 23.3,
-   "d": 120,
-   "h": 38
-  },
-  "type": "besta",
-  "refs": [
-   {
-    "itemNo": "594.292.50",
-    "q": 2
-   }
-  ],
-  "groupe": null,
-  "cocheParDefaut": true,
-  "positions": {
-   "V": {
-    "x": 362.2,
-    "z": 194,
-    "y": 135
-   }
-  },
-  "face": "-x"
+  "positions": {}
  },
  {
   "id": "acc",
@@ -503,12 +1690,12 @@
   "cocheParDefaut": true,
   "positions": {
    "A": {
-    "x": 52,
+    "x": 5,
     "z": 14,
     "y": 74
    },
    "V": {
-    "x": 52,
+    "x": 5,
     "z": 14,
     "y": 74
    }
@@ -665,7 +1852,7 @@
  {
   "id": "fridhult",
   "nom": "FRIDHULT",
-  "description": "Canapé convertible 126 × 76, couchage 119 × 202",
+  "description": "Canapé convertible 126 × 76, couchage 119 × 202. Socle plein : le robot ne passe pas dessous (aucun convertible IKEA de 138 cm ou moins n’a de garde au sol)",
   "prixUnitaire": 249,
   "quantite": 1,
   "statutPrix": "vérifié",
@@ -718,10 +1905,6 @@
    "A": {
     "x": 176.5,
     "z": 186.5
-   },
-   "V": {
-    "x": 176.5,
-    "z": 186.5
    }
   }
  },
@@ -745,10 +1928,6 @@
    "A": {
     "x": 285.5,
     "z": 214
-   },
-   "V": {
-    "x": 285.5,
-    "z": 214
    }
   }
  },
@@ -770,10 +1949,6 @@
   "cocheParDefaut": false,
   "positions": {
    "A": {
-    "x": 307.5,
-    "z": 193.5
-   },
-   "V": {
     "x": 307.5,
     "z": 193.5
    }
@@ -833,10 +2008,6 @@
   "cocheParDefaut": false,
   "positions": {
    "A": {
-    "x": 295.5,
-    "z": 186.5
-   },
-   "V": {
     "x": 295.5,
     "z": 186.5
    }

@@ -19,7 +19,7 @@ Le détail de chaque étape et les pièges rencontrés sont dans [docs/parcours.
 
 ## Exemple : mon bureau
 
-[projets/bureau](projets/bureau/) contient le premier projet mené de bout en bout : une pièce de 3,30 × 3,40 m qui n'est pas d'équerre, avec un renfoncement, une porte-fenêtre, un canapé-lit et une imprimante 3D à loger. Sept implantations ont été comparées avant d'en retenir une, et la version finale, en chêne naturel, représente 13 références et 1 109,90 € sur ikea.fr.
+[projets/bureau](projets/bureau/) contient le premier projet mené de bout en bout : une pièce de 3,30 × 3,40 m qui n'est pas d'équerre, avec un renfoncement, une porte-fenêtre, un canapé-lit et une imprimante 3D à loger. Sept implantations ont été comparées avant d'en retenir une, et la version finale, en chêne naturel, représente 13 références et 1 188,92 € sur ikea.fr.
 
 ## Utilisation
 

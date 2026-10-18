@@ -55,7 +55,7 @@ test("les données extraites suivent la maquette", () => {
   assert.ok(Array.isArray(articles) && articles.length > 0);
   assert.equal(piece.plafond, 238);
   assert.equal(piece.contour.length, 8);
-  assert.ok(JSON.stringify(versions).includes("1109.9"));
+  assert.ok(JSON.stringify(versions).includes("1188.92"));
 });
 
 test("le lien panier de la version finale correspond au panier publié", () => {

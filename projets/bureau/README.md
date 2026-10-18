@@ -4,8 +4,8 @@ Premier projet mené avec l'outil, en octobre 2026 : transformer une petite cham
 
 |                                  |                                                                                                                                                                                    |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maquette                         | [maquette.html](maquette.html), à ouvrir dans un navigateur (versions « état actuel », A et Vdef)                                                                                  |
-| Version retenue                  | Vdef, 1 109,90 € sur ikea.fr : [design dans le planificateur](https://www.ikea.com/fr/fr/home-design/share/607628ce-052b-43ec-82ec-adc22572c458/), [paniers et détail](paniers.md) |
+| Maquette                         | [maquette.html](maquette.html), à ouvrir dans un navigateur (état actuel, A, Vdef et les onze pistes étudiées depuis A)                                                            |
+| Version retenue                  | Vdef, 1 188,92 € sur ikea.fr : [design dans le planificateur](https://www.ikea.com/fr/fr/home-design/share/81455d46-9f21-4b21-b11f-2f787b414f12/), [paniers et détail](paniers.md) |
 | Pièce vide dans le planificateur | [design partagé](https://www.ikea.com/fr/fr/home-design/share/ccdada6e-6384-427f-a805-94f6fa957805/), vérifié à 1 cm                                                               |
 | Données                          | [donnees/](donnees/), régénérées par `npm run extraire -- projets/bureau/maquette.html`                                                                                            |
 | Sources                          | [plan dessiné](sources/plan-dessine.jpg), [photo d'inspiration](sources/inspiration.jpg)                                                                                           |
@@ -47,19 +47,22 @@ Sept implantations ont été modélisées et envoyées dans le planificateur, to
 
 J'ai retenu A : la lumière vient de côté, sans reflet sur l'écran, et la bibliothèque posée sur le meuble bas fonctionne bien. Il lui manquait une place pour l'imprimante, et l'espace entre le bureau et la porte-fenêtre restait sous-exploité. Les liens des versions B à G sont conservés dans [donnees/liens-ikea.json](donnees/liens-ikea.json).
 
+Pour combler ces manques, j'ai ensuite repris A sous la forme de onze pistes, de la grande commode à la presqu'île en passant par le bureau en épi. Elles restent consultables dans la maquette, boutons 1 à 11.
+
 ## Version finale (Vdef)
 
 ![Vdef dans le planificateur IKEA, vue de dessus](images/planificateur-V.png)
 
-Vdef garde l'implantation de A, le bureau côté porte et la bibliothèque à portée de main, mais remplit tout le mur gauche et passe en chêne naturel. Une première Vdef, avec une colonne PAX en chêne blanchi contre la porte-fenêtre, a été abandonnée pour cette version : elle ne s'accordait pas avec le bureau, et le planificateur n'a pas de caisson PAX de 50 cm seul.
+Vdef reprend la piste 3, une colonne de tiroirs à côté du bureau, et garde les rangements de A autour du canapé, passés en chêne naturel comme le bureau. Deux Vdef précédentes ont été abandonnées : une colonne PAX en chêne blanchi, qui ne s'accordait pas avec le bureau, puis une colonne BILLY/OXBERG dont la profondeur rompait l'alignement des façades.
 
-- Mur gauche, 340 cm occupés au centimètre : le bureau (160), une commode STORKLINTA 140 × 50 à six tiroirs collée au bureau, puis une colonne BILLY 40 à portes OXBERG dans l'angle de la porte-fenêtre.
-- Sur la commode, entre une BILLY 80 côté bureau et la colonne, la niche de l'imprimante : 60 × 89 cm sous une BESTÅ murale, pour 85 cm nécessaires couvercle ouvert, éclairée par une réglette à détecteur.
-- Au-dessus du bureau, deux BESTÅ murales de 22 cm de profondeur à portes HEDEVIKEN plaqué chêne, alignées sur le haut de la colonne, et la lampe FORSÅ.
-- Dans le renfoncement, le FRIDHULT, un chevet BILLY 40, deux BESTÅ murales au-dessus du dossier et un spot à pince pour lire.
+- Mur gauche, 340 cm occupés au centimètre : le bureau (160), une STORKLINTA 40 × 120 à cinq tiroirs, puis une commode STORKLINTA 140 × 50 à six tiroirs jusqu'à la porte-fenêtre.
+- Les deux commodes sont posées sur des tasseaux de 10 cm vissés au mur : leurs façades sont au même plan, à 60 cm du mur, sous la limite de 69 cm imposée par le trumeau de la fenêtre, et les câbles passent derrière.
+- Sur la grande commode, une BILLY 80 côté bureau, avancée au même plan, puis la niche de l'imprimante sur le dessus plein : 60 × 89 cm sous une BESTÅ murale, pour 85 cm nécessaires couvercle ouvert, éclairée par une réglette à détecteur. Les tablettes ne portent que 20 kg, l'imprimante en pèse 22.
+- Au-dessus du bureau, deux BESTÅ murales de 38 cm de haut à portes HEDEVIKEN plaqué chêne, fixées à 1,50 m comme les cubes EKET de A, et la lampe FORSÅ.
+- Autour du canapé FRIDHULT, comme dans A : un chevet BESTÅ côté porte et une colonne de deux BESTÅ côté fenêtre, sur pieds STUBBARP pour laisser passer l'aspirateur robot, et un spot à pince pour lire.
 - Tout part de la seule prise, côté porte : rallonges et bloc multiprise sous le bureau.
 
-Total : 1 109,90 € pour 13 références, identique dans la maquette et sur ikea.fr. La chaîne place les 14 meubles à 2 cm près dans le planificateur. Les BESTÅ y gardent un caisson blanc, comme chez IKEA, qui ne vend pas de caisson BESTÅ en chêne.
+Total : 1 188,92 € pour 13 références, identique dans la maquette et sur ikea.fr. La chaîne place les 14 meubles à 2 cm près dans le planificateur. Les BESTÅ y gardent un caisson blanc, comme chez IKEA, qui ne vend pas de caisson BESTÅ en chêne.
 
 ## Ce que j'en retiens
 
